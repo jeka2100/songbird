@@ -1,0 +1,10 @@
+.nextButton {
+  width: 100%;
+  margin: 25px 0px;
+  transition: .3s;
+  font-size: 1.5rem;
+
+  &.disabled {
+    cursor: default;
+  }
+}

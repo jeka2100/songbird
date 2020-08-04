@@ -1,5 +1,13 @@
 //Base
-@import './base/normalize';
+@import './base/base';
 
 //Layout
 @import './layout/header';
+@import './layout/levelList';
+@import './layout/randomBird';
+@import './layout/answers';
+@import './layout/birdInfo';
+
+//Components
+@import './components/audioPlayer';
+@import './components/buttons';

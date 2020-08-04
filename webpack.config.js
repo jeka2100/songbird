@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: ['./src/index.js', './src/sass/style.scss'],
@@ -17,7 +18,6 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          emitError: true,
           emitWarning: true,
           failOnError: false,
         },
@@ -47,6 +47,13 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: './src/audio', to: './audio' },
+        { from: './src/img/birds', to: './birds' },
+        { from: './src/img/favicon.png', to: './favicon.png' },
+      ],
+    }),
     new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',

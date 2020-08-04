@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^1.0.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -40,6 +41,7 @@
     "bootswatch": "^4.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-h5-audio-player": "^3.2.0"
   }
 }
