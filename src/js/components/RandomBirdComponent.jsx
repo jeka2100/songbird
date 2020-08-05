@@ -5,12 +5,18 @@ import hiddenBird from '../../img/hiddenBird.jpg';
 import 'react-h5-audio-player/lib/styles.css';
 
 function RandomBird(props) {
-  const { currentBirds, correctBird } = props;
+  const { currentBirds, correctBird, isCorrectAnswer } = props;
+  let birdImage = hiddenBird;
+  let birdName = '***';
+  if (isCorrectAnswer) {
+    birdImage = currentBirds[correctBird].image;
+    birdName = currentBirds[correctBird].name;
+  }
   return (
     <div className="randomBird jumbotron rounded">
-      <img src={hiddenBird} alt="" className="randomBird__image" />
+      <img src={birdImage} alt="" className="randomBird__image" />
       <div className="list-group">
-        <div className="list-group-item">***</div>
+        <div className="list-group-item randomBird__name">{birdName}</div>
         <div className="list-group-item">
           <AudioPlayer
             src={currentBirds[correctBird].audio}

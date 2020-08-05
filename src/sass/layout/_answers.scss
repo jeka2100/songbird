@@ -18,4 +18,12 @@
   border-radius: 50%;
   transition: .1s;
   background-color: #fff;
+
+  &.correct {
+    background-color: #6ced6c;
+  }
+
+  &.wrong {
+    background-color: #ff0000;
+  }
 }

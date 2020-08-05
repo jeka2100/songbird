@@ -33,8 +33,8 @@ function getCardInfo(currentBirdCard, currentBirds) {
 }
 
 function BirdInfo(props) {
-  const { currentBirdCard, currentBirds } = props;
-  const cardInfo = getCardInfo(currentBirdCard, currentBirds);
+  const { currentBird, currentBirds } = props;
+  const cardInfo = getCardInfo(currentBird, currentBirds);
 
   return (
     <div className="birdInfo card">

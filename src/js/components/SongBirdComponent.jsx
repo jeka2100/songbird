@@ -1,6 +1,6 @@
 import React from 'react';
 
-import data from '../data';
+import birdsData from '../birdsData';
 
 import Header from './HeaderComponent';
 import LevelList from './LevelListComponent';
@@ -9,11 +9,15 @@ import AnswersAndBirdInfo from './AnswersAndBirdInfoComponent';
 import NextButton from './NextButtonComponent';
 
 function SongBird(props) {
-  const { currentLevel, currentBirdCard, levelNames, nextLevel, handleClickAnswer, correctBird, isCorrectAnswer } = props;
-  const currentBirds = data[currentLevel];
+  const {
+    currentLevel, currentBird, levelNames, nextLevel,
+    handleClickAnswer, correctBird, isCorrectAnswer,
+    answersStatus, totalPoints
+  } = props;
+  const currentBirds = birdsData[currentLevel];
   return (
     <div className="container">
-      <Header score={0} />
+      <Header score={totalPoints} />
       <LevelList
         levelNames={levelNames}
         currentLevel={currentLevel}
@@ -21,11 +25,14 @@ function SongBird(props) {
       <RandomBird
         currentBirds={currentBirds}
         correctBird={correctBird}
+        isCorrectAnswer={isCorrectAnswer}
       />
       <AnswersAndBirdInfo
         currentBirds={currentBirds}
-        currentBirdCard={currentBirdCard}
+        currentBird={currentBird}
         handleClickAnswer={(i) => handleClickAnswer(i)}
+        correctBird={correctBird}
+        answersStatus={answersStatus}
       />
       <NextButton
         nextLevel={() => nextLevel()}

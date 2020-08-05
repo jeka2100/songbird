@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function AnswersComponent(props) {
-  const { currentBirds, handleClickAnswer } = props;
+  const { currentBirds, handleClickAnswer, answersStatus, currentBird } = props;
 
-  const AnswersList = Object.values(currentBirds).map((item, index) => (
-    <button type="button" onClick={() => handleClickAnswer(index)} className="list-group-item list-group-item-action">
-      <span className="answerStatus" />
-      {item.name}
-    </button>
-  ));
+  const AnswersList = Object.values(currentBirds).map((item, index) => {
+    const answerStatusClass = answersStatus === null ? 'answerStatus' : `answerStatus ${answersStatus[index]}`;
+    return (
+      <button type="button" onClick={() => handleClickAnswer(index)} className="list-group-item list-group-item-action">
+        <span className={answerStatusClass} />
+        {item.name}
+      </button>
+    );
+});
 
   return (
     <ul className="list-group answers">

@@ -5,19 +5,22 @@ import Answers from '../containers/AnswersContainer';
 import BirdInfo from './BirdInfoComponent';
 
 function AnswersAndBirdInfo(props) {
-  const { currentBirds, handleClickAnswer, currentBirdCard } = props;
+  const { currentBirds, handleClickAnswer, currentBird, correctBird, answersStatus } = props;
   return (
     <div className="answersDescription row">
       <div className="col-md">
         <Answers
           currentBirds={currentBirds}
           handleClickAnswer={(i) => handleClickAnswer(i)}
+          currentBird={currentBird}
+          correctBird={correctBird}
+          answersStatus={answersStatus}
         />
       </div>
       <div className="col-md">
         <BirdInfo
           currentBirds={currentBirds}
-          currentBirdCard={currentBirdCard}
+          currentBird={currentBird}
         />
       </div>
     </div>

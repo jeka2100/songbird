@@ -3,4 +3,4 @@ const getRandomBirdNumber = () => {
   return Math.floor(Math.random() * maxNumber);
 };
 
-export { getRandomBirdNumber };
+export default getRandomBirdNumber;
