@@ -7,7 +7,7 @@ function AnswersComponent(props) {
   const AnswersList = Object.values(currentBirds).map((item, index) => {
     const answerStatusClass = answersStatus === null ? 'answerStatus' : `answerStatus ${answersStatus[index]}`;
     return (
-      <button type="button" onClick={() => handleClickAnswer(index)} className="list-group-item list-group-item-action">
+      <button key={item.id} type="button" onClick={() => handleClickAnswer(index)} className="list-group-item list-group-item-action">
         <span className={answerStatusClass} />
         {item.name}
       </button>

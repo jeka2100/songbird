@@ -11,6 +11,11 @@
 .birdInfo__card {
   display: flex;
   padding: 0;
+
+  @media (max-width: 570px) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .birdInfo__birdImage {
@@ -19,6 +24,10 @@
   border-radius: 1rem;
   object-fit: cover;
   margin-right: 1rem;
+
+  @media (max-width: 570px) {
+    margin: auto;
+  }
 }
 
 .birdInfo__list {
@@ -44,4 +53,8 @@
   margin: 10px 0;
   color: white;
   font-size: 1.5rem;
+
+  @media (max-width: 570px) {
+    text-align: center;
+  }
 }

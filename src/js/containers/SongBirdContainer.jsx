@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
 import SongBirdComponent from '../components/SongBirdComponent';
 import getRandomBirdNumber from '../utils/utils';
@@ -16,8 +16,7 @@ class SongBird extends React.Component {
       currentBird: null,
       answersStatus: Array(6).fill(null),
     };
-    this.settings = {
-    };
+    this.randomBirdPlayer = createRef();
   }
 
   getAnswerStatus(answerType) {
@@ -36,22 +35,32 @@ class SongBird extends React.Component {
   }
 
   correctAnswer() {
-    console.log('correct');
-    const newAnswersStatus = this.getAnswerStatus('correct');
-    this.setState((state) => ({
-      isCorrectAnswer: true,
-      totalPoints: state.totalPoints + state.currentPoints,
-      answersStatus: newAnswersStatus,
-    }));
+    const { isCorrectAnswer } = this.state;
+    if (!isCorrectAnswer) {
+      this.randomBirdPlayer.current.audio.current.pause();
+      const correctAudio = new Audio('./audio/game-sounds/correct.mp3');
+      correctAudio.play();
+      const newAnswersStatus = this.getAnswerStatus('correct');
+
+      this.setState((state) => ({
+        isCorrectAnswer: true,
+        totalPoints: state.totalPoints + state.currentPoints,
+        answersStatus: newAnswersStatus,
+      }));
+    }
   }
 
   wrongAnswer() {
-    console.log('wrong');
-    const newAnswersStatus = this.getAnswerStatus('wrong');
-    this.setState((state) => ({
-      currentPoints: state.currentPoints - 1,
-      answersStatus: newAnswersStatus,
-    }));
+    const { currentBird, answersStatus, isCorrectAnswer } = this.state;
+    if (answersStatus[currentBird] === null && !isCorrectAnswer) {
+      const errorAudio = new Audio('./audio/game-sounds/error.mp3');
+      errorAudio.play();
+      const newAnswersStatus = this.getAnswerStatus('wrong');
+      this.setState((state) => ({
+        currentPoints: state.currentPoints - 1,
+        answersStatus: newAnswersStatus,
+      }));
+    }
   }
 
   checkAnswer() {
@@ -82,6 +91,16 @@ class SongBird extends React.Component {
     }
   }
 
+  restartGame() {
+    this.setState(() => ({
+      currentLevel: 0,
+      correctBird: getRandomBirdNumber(),
+      totalPoints: 0,
+      currentPoints: 5,
+      currentBird: null,
+    }));
+  }
+
   render() {
     const {
       currentLevel, correctBird, currentBird, isCorrectAnswer,
@@ -89,6 +108,7 @@ class SongBird extends React.Component {
     } = this.state;
     return (
       <SongBirdComponent
+        randomBirdPlayer={this.randomBirdPlayer}
         currentLevel={currentLevel}
         totalPoints={totalPoints}
         correctBird={correctBird}
@@ -98,6 +118,7 @@ class SongBird extends React.Component {
         handleClickAnswer={(i) => this.handleClickAnswer(i)}
         isCorrectAnswer={isCorrectAnswer}
         answersStatus={answersStatus}
+        restartGame={() => this.restartGame()}
       />
     );
   }

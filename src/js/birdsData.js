@@ -261,7 +261,7 @@ const birdsData = [
       latin: 'Porzana albicollis',
       description: 'Род небольших птиц из семейства пастушковых, с коротким конусообразным клювом и длинными пальцами на ногах.',
       image: './birds/south-america/Porzana-albicollis.jpg',
-      audio: './audio/south-america/Porzana-albicollis.png',
+      audio: './audio/south-america/Porzana-albicollis.mp3',
     },
   ],
 ];
