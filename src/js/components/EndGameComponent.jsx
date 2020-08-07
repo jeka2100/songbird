@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import certificateImage from '../../img/certificate.png';
 
 function EndGame(props) {
   const {
-    totalPoints, levelNames, currentLevel, restartGame,
+    totalPoints, restartGame,
   } = props;
 
   return (
@@ -23,5 +24,10 @@ function EndGame(props) {
     </div>
   );
 }
+
+EndGame.propTypes = {
+  totalPoints: PropTypes.number.isRequired,
+  restartGame: PropTypes.func.isRequired,
+};
 
 export default EndGame;

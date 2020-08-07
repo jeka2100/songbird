@@ -5,7 +5,9 @@ import Answers from '../containers/AnswersContainer';
 import BirdInfo from './BirdInfoComponent';
 
 function AnswersAndBirdInfo(props) {
-  const { currentBirds, handleClickAnswer, currentBird, correctBird, answersStatus } = props;
+  const {
+    currentBirds, handleClickAnswer, currentBird, correctBird, answersStatus,
+  } = props;
   return (
     <div className="answersDescription row">
       <div className="col-md">
@@ -28,7 +30,15 @@ function AnswersAndBirdInfo(props) {
 }
 
 AnswersAndBirdInfo.propTypes = {
+  currentBirds: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleClickAnswer: PropTypes.func.isRequired,
+  currentBird: PropTypes.number,
+  correctBird: PropTypes.number.isRequired,
+  answersStatus: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
+AnswersAndBirdInfo.defaultProps = {
+  currentBird: null,
 };
 
 export default AnswersAndBirdInfo;

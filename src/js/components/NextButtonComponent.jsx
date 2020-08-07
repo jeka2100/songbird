@@ -9,4 +9,9 @@ function NextButton(props) {
   );
 }
 
+NextButton.propTypes = {
+  nextLevel: PropTypes.func.isRequired,
+  isCorrectAnswer: PropTypes.bool.isRequired,
+};
+
 export default NextButton;

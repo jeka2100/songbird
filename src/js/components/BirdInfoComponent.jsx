@@ -43,4 +43,13 @@ function BirdInfo(props) {
   );
 }
 
+BirdInfo.propTypes = {
+  currentBirds: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentBird: PropTypes.number,
+};
+
+BirdInfo.defaultProps = {
+  currentBird: null,
+};
+
 export default BirdInfo;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function AnswersComponent(props) {
-  const { currentBirds, handleClickAnswer, answersStatus, currentBird } = props;
+  const { currentBirds, handleClickAnswer, answersStatus } = props;
 
   const AnswersList = Object.values(currentBirds).map((item, index) => {
     const answerStatusClass = answersStatus === null ? 'answerStatus' : `answerStatus ${answersStatus[index]}`;
@@ -12,7 +12,7 @@ function AnswersComponent(props) {
         {item.name}
       </button>
     );
-});
+  });
 
   return (
     <ul className="list-group answers">
@@ -20,5 +20,11 @@ function AnswersComponent(props) {
     </ul>
   );
 }
+
+AnswersComponent.propTypes = {
+  currentBirds: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleClickAnswer: PropTypes.func.isRequired,
+  answersStatus: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default AnswersComponent;

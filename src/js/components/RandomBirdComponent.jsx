@@ -5,7 +5,9 @@ import hiddenBird from '../../img/hiddenBird.jpg';
 import 'react-h5-audio-player/lib/styles.css';
 
 function RandomBird(props) {
-  const { currentBirds, correctBird, isCorrectAnswer, randomBirdPlayer } = props;
+  const {
+    currentBirds, correctBird, isCorrectAnswer, randomBirdPlayer,
+  } = props;
   let birdImage = hiddenBird;
   let birdName = '***';
   if (isCorrectAnswer) {
@@ -30,7 +32,10 @@ function RandomBird(props) {
 }
 
 RandomBird.propTypes = {
-
+  currentBirds: PropTypes.arrayOf(PropTypes.object).isRequired,
+  correctBird: PropTypes.number.isRequired,
+  isCorrectAnswer: PropTypes.bool.isRequired,
+  randomBirdPlayer: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default RandomBird;
