@@ -1,0 +1,15 @@
+//Base
+@import './base/base';
+
+//Layout
+@import './layout/header';
+@import './layout/levelList';
+@import './layout/randomBird';
+@import './layout/answers';
+@import './layout/birdInfo';
+@import './layout/endGame';
+@import './layout/answersDescription';
+
+//Components
+@import './components/audioPlayer';
+@import './components/buttons';

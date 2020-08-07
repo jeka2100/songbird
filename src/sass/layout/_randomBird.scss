@@ -1,0 +1,43 @@
+.randomBird {
+  display: flex;
+
+  @media (max-width: 570px) {
+    flex-direction: column;
+  }
+
+  .list-group {
+    flex-grow: 1;
+    padding: 0 0 0 10px;
+  }
+  
+  .list-group-item {
+    font-size: 2rem;
+
+    &:hover {
+      background-color: #32383e;
+    }
+
+    &:nth-child(1) {
+      height: 30%;
+    }
+
+    &:nth-child(2) {
+      height: 70%;
+    }
+  }
+}
+
+.randomBird__image {
+  border-radius: 1rem;
+  width: 200px;
+  height: 155px;
+  object-fit: cover;
+
+  @media (max-width: 570px) {
+    margin: 0 auto 20px;
+  }
+}
+
+.randomBird__name {
+  color: white;
+}

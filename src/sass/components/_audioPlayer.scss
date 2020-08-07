@@ -1,0 +1,27 @@
+.rhap_container {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.rhap_rewind-button, .rhap_forward-button, .rhap_repeat-button {
+  display: none;
+}
+
+.rhap_time {
+  color: #ffffff;
+}
+
+.rhap_progress-filled {
+  background-color: #c8c4c4;
+}
+
+.rhap_progress-indicator {
+  background-color: #ffffff;
+}
+
+.rhap_button-clear, .rhap_progress-container {
+  filter: contrast(10);
+  &:active, &:focus {
+    outline: none;
+  }
+}
